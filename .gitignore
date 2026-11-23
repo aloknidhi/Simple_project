@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+*.tgz
+
+# Build outputs
+/frontend/dist/
+/backend/__pycache__/
+/backend/*.pyc
+/backend/.venv/
+/backend/venv/
+
+# Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+.snap
+
+# Database
+*.sqlite3
+
+# Storage
+/storage/uploads/
+
+# Coverage
+coverage/
+*.cover
+
+# Python
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Package manager
+yarn-debug.log*
+yarn-error.log
+
+# Production
+.env.production
+.env.staging
