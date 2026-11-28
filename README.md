@@ -1,87 +1,84 @@
-# Personal AI Brain
+# Simple Project
 
-An AI-powered personal knowledge & productivity management system that understands your learning activities, builds a knowledge graph, and generates adaptive study plans.
+A simple tracker application to learn the fundamentals of Python and AI/ML concepts.
 
-## 🎯 Vision
-Transform scattered digital learning activities into structured knowledge, actionable plans, and measurable progress.
-
-## 🏗️ Architecture
-
-```
-personal-ai-brain/
-├── frontend/              # React + TypeScript + Tailwind
-├── backend/               # Python FastAPI
-├── database/              # PostgreSQL + pgvector
-├── docs/                  # Documentation
-└── storage/               # Imported files cache
-```
-
-## 🚀 Technology Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|------------|
-| Frontend | React + TypeScript + Tailwind CSS + Recharts |
 | Backend | Python 3.12 + FastAPI |
-| Database | PostgreSQL + pgvector |
-| AI | OpenAI API (GPT-4, embeddings) |
-| Auth | JWT + OAuth2 |
-| Deployment | Docker + Render/Vercel |
+| Frontend | React + TypeScript + Tailwind CSS (Vite) |
+| Database | PostgreSQL 15 + pgvector |
+| Cache | Redis |
+| Auth | JWT (OAuth2) |
+| Deployment | Docker + Docker Compose |
 
-## 📋 Development Roadmap
+## Project Structure
 
-### Phase 1: Foundation (Days 1-7)
-1. Project configuration & Docker setup
-2. Database schema & migrations  
-3. User authentication system
-4. ChatGPT importer module
-5. AI analyzer module
-6. Knowledge graph models
-7. Study planner module
+```
+Simple_project/
+├── backend/        # FastAPI application
+├── frontend/       # React + Vite frontend
+├── database/       # SQL schema and migrations
+├── docs/           # Documentation
+├── docker-compose.yml
+└── README.md
+```
 
-### Phase 2: Core Features (Days 8-14)
-8. Activity tracking & timer
-9. Analytics & reporting
-10. Dashboard & visualization
-11. Permission management
-12. Source integration framework
-13. Testing suite
-14. Production deployment
+## Getting Started
 
-## 🛠️ Getting Started
+### Prerequisites
+
+- Python 3.12+
+- Node.js 18+
+- Docker & Docker Compose
+
+### Run with Docker (recommended)
 
 ```bash
-# Clone repository
 git clone https://github.com/aloknidhi/Simple_project.git
 cd Simple_project
 
-# Setup backend
+cp backend/.env.example backend/.env
+# edit backend/.env with your settings
+
+docker-compose up
+```
+
+Services:
+
+- Backend API: http://localhost:8000
+- Frontend: http://localhost:3000
+- Interactive API docs: http://localhost:8000/docs
+- pgAdmin: http://localhost:5050
+
+### Run backend locally
+
+```bash
 cd backend
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-
-# Setup frontend  
-cd ../frontend
-npm install
-
-# Start services
-docker-compose up
+uvicorn app.main:app --reload
 ```
 
-## 📚 Documentation
+### Run frontend locally
 
-- [Software Requirements Specification](docs/SRS.md)
-- [System Architecture](docs/ARCHITECTURE.md)
-- [API Documentation](docs/API.md)
-- [Development Guide](docs/DEVELOPMENT.md)
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## 🔐 Privacy & Security
+## Core API Endpoints
 
-- Explicit user consent for all data sources
-- End-to-end encryption for sensitive data
-- No hidden data collection
-- GDPR-compliant data deletion
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /healthz | Health check |
+| POST | /api/v1/auth/register | Register a new user |
+| POST | /api/v1/auth/login | Login and receive a JWT token |
+| GET | /api/v1/auth/me | Get current user profile |
 
-## 🤝 Contributing
+## License
 
-This is a personal project. Open issues for bugs or feature requests.
+MIT
